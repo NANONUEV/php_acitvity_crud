@@ -1,19 +1,18 @@
 <?php
-// Database credentials
+
 $servername = "localhost";
 $username = "nanonuev";
 $password = "biri";
 $dbname = "baits";
 
-// Create connection
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Add new user to database
 if(isset($_POST['add'])) {
   $name = $_POST['name'];
   $username = $_POST['username'];
@@ -28,7 +27,6 @@ if(isset($_POST['add'])) {
   }
 }
 
-// Update user data
 if(isset($_POST['update'])) {
   $name = $_POST['name'];
   $username = $_POST['username'];
@@ -43,7 +41,7 @@ if(isset($_POST['update'])) {
   }
 }
 
-// Delete user data
+
 if(isset($_POST['delete'])) {
   $username = $_POST['username'];
   $sql = "DELETE FROM users WHERE username='$username'";
@@ -54,7 +52,7 @@ if(isset($_POST['delete'])) {
   }
 }
 
-// Close connection
+
 $conn->close();
 ?>
 
